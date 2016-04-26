@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Hangman</string>
+    <string name="main_title">Welcome to the Hangman Game!</string>
+    <string name="difficulty_option_text">Please choose your difficulty level:</string>
+    <string name="easy">Easy</string>
+    <string name="medium">Medium</string>
+    <string name="hard">Hard</string>
+</resources>
