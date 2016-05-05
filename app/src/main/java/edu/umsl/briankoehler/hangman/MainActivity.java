@@ -5,7 +5,9 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity implements TitleScreenFragment.listener{
+import com.orm.SugarContext;
+
+public class MainActivity extends AppCompatActivity implements TitleScreenFragment.listener, ControllerFragment.listener{
 
     ControllerFragment mControllerFragment;
     TitleScreenFragment mTitleScreenFragment;
@@ -36,11 +38,24 @@ public class MainActivity extends AppCompatActivity implements TitleScreenFragme
         }
 
         mTitleScreenFragment.setListener(this);
+        mControllerFragment.setListener(this);
+        SugarContext.init(this);
+
     }
 
 
     @Override
     public void onDictionaryButtonPress() {
         mControllerFragment.addWordsFromFileToDb();
+    }
+
+    @Override
+    public void onUpdateComplete() {
+        mTitleScreenFragment.reenableChoices();
+    }
+
+    @Override
+    public void updateProgressBar(int progress) {
+        mTitleScreenFragment.updateProgressBar(progress);
     }
 }

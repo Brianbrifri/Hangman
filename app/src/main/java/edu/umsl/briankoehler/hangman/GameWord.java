@@ -8,7 +8,8 @@ public class GameWord extends SugarRecord{
     private int length;
 
     public GameWord() {
-
+        word = "";
+        length = 0;
     }
 
     public GameWord(String word, int length) {
