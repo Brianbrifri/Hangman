@@ -2,9 +2,7 @@ package edu.umsl.briankoehler.hangman;
 
 import com.orm.SugarRecord;
 
-/**
- * Created by Brian Koehler on 5/4/2016.
- */
+
 public class GameWord extends SugarRecord{
     private String word;
     private int length;

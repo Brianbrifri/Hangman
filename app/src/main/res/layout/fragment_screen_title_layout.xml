@@ -48,9 +48,17 @@
             android:textColor="@android:color/holo_red_dark"/>
     </LinearLayout>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/load_dictionary"
+        android:layout_gravity="center"
+        android:text="@string/load_dictionary"/>
+
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/hangman"/>
+
 
 </LinearLayout>
