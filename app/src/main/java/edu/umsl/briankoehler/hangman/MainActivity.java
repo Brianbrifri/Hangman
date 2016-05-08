@@ -7,9 +7,9 @@ import android.os.Bundle;
 
 import com.orm.SugarContext;
 
-public class MainActivity extends AppCompatActivity implements TitleScreenFragment.listener, ControllerFragment.listener{
+public class MainActivity extends AppCompatActivity implements TitleScreenFragment.listener, LibraryBuilderFragment.listener{
 
-    ControllerFragment mControllerFragment;
+    LibraryBuilderFragment mLibraryBuilderFragment;
     TitleScreenFragment mTitleScreenFragment;
     private static final String SECONDARY_TAG = "SECONDARY_FRAGMENT";
 
@@ -29,16 +29,16 @@ public class MainActivity extends AppCompatActivity implements TitleScreenFragme
                     .commit();
         }
 
-        mControllerFragment = (ControllerFragment) manager.findFragmentByTag(SECONDARY_TAG);
-        if(mControllerFragment == null) {
-            mControllerFragment = new ControllerFragment();
+        mLibraryBuilderFragment = (LibraryBuilderFragment) manager.findFragmentByTag(SECONDARY_TAG);
+        if(mLibraryBuilderFragment == null) {
+            mLibraryBuilderFragment = new LibraryBuilderFragment();
             manager.beginTransaction()
-                    .add(mControllerFragment, SECONDARY_TAG)
+                    .add(mLibraryBuilderFragment, SECONDARY_TAG)
                     .commit();
         }
 
         mTitleScreenFragment.setListener(this);
-        mControllerFragment.setListener(this);
+        mLibraryBuilderFragment.setListener(this);
         SugarContext.init(this);
 
     }
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements TitleScreenFragme
 
     @Override
     public void onDictionaryButtonPress() {
-        mControllerFragment.addWordsFromFileToDb();
+        mLibraryBuilderFragment.addWordsFromFileToDb();
     }
 
     @Override

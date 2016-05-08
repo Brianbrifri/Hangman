@@ -11,7 +11,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 
-public class ControllerFragment extends Fragment{
+public class LibraryBuilderFragment extends Fragment{
 
     private listener mListener;
 
