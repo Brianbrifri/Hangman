@@ -15,6 +15,7 @@ import android.widget.TextView;
 public class GameFragment extends Fragment{
 
     private TextView mWordTextView;
+    private GameFragmentListener mListener;
 
     private Button mQButton;
     private Button mWButton;
@@ -26,6 +27,15 @@ public class GameFragment extends Fragment{
     private Button mIButton;
     private Button mOButton;
     private Button mPButton;
+
+
+    interface GameFragmentListener {
+        String updateTextView();
+    }
+
+    public void setListener (GameFragmentListener listener) {
+        mListener = listener;
+    }
 
     @Nullable
     @Override
@@ -43,10 +53,12 @@ public class GameFragment extends Fragment{
         mPButton = (Button) view.findViewById(R.id.imageButtonP);
         mWordTextView = (TextView) view.findViewById(R.id.main_text_view);
 
+        updateTextView();
+
         return view;
     }
 
-    public void updateTextView(String currentWordDisplay) {
-        mWordTextView.setText("Test");
+    public void updateTextView() {
+        mWordTextView.setText(mListener.updateTextView());
     }
 }

@@ -1,6 +1,5 @@
 package edu.umsl.briankoehler.hangman;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,8 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
-
-import java.util.List;
 
 
 public class TitleScreenFragment extends Fragment{
@@ -39,7 +36,9 @@ public class TitleScreenFragment extends Fragment{
         mEasyButton = (Button) view.findViewById(R.id.easy_button);
         mEasyButton.setOnClickListener(onEasyButtonPress());
         mMediumButton = (Button) view.findViewById(R.id.medium_button);
+        mMediumButton.setOnClickListener(onMediumButtonPress());
         mHardButton = (Button) view.findViewById(R.id.hard_button);
+        mHardButton.setOnClickListener(onHardButtonPress());
         mDictionaryButton = (Button) view.findViewById(R.id.load_dictionary);
         mDictionaryButton.setOnClickListener(onDictionaryButtonPress());
         GameWord mGameWord = GameWord.findById(GameWord.class, 4);
@@ -76,6 +75,26 @@ public class TitleScreenFragment extends Fragment{
             @Override
             public void onClick(View v) {
                 Intent intent = GameActivity.newIntent(getActivity(), EASY);
+                startActivity(intent);
+            }
+        };
+    }
+
+    private View.OnClickListener onMediumButtonPress() {
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = GameActivity.newIntent(getActivity(), MEDIUM);
+                startActivity(intent);
+            }
+        };
+    }
+
+    private View.OnClickListener onHardButtonPress() {
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = GameActivity.newIntent(getActivity(), HARD);
                 startActivity(intent);
             }
         };

@@ -18,13 +18,13 @@ public class GameModel {
 
     public GameModel(int difficultyLevel) {
         if (difficultyLevel == EASY) {
-            mWordList = (ArrayList<GameWord>) GameWord.findWithQuery(GameWord.class, "Select * from game_word WHERE (length > 2 AND length < 6");
+            mWordList = (ArrayList<GameWord>) GameWord.findWithQuery(GameWord.class, "Select * from game_word WHERE (length > 2 AND length < 6)");
         }
         else if (difficultyLevel == MEDIUM) {
-            mWordList = (ArrayList<GameWord>) GameWord.findWithQuery(GameWord.class, "Select * from game_word WHERE (length > 5 AND length < 8");
+            mWordList = (ArrayList<GameWord>) GameWord.findWithQuery(GameWord.class, "Select * from game_word WHERE (length > 5 AND length < 8)");
         }
         else {
-            mWordList = (ArrayList<GameWord>) GameWord.findWithQuery(GameWord.class, "Select * from game_word WHERE (length > 7 AND length < 13");
+            mWordList = (ArrayList<GameWord>) GameWord.findWithQuery(GameWord.class, "Select * from game_word WHERE (length > 7 AND length < 13)");
         }
 
         Random randomGenerator = new Random();
