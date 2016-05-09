@@ -59,4 +59,9 @@ public class GameActivity extends AppCompatActivity implements GameFragment.Game
     public String updateTextView() {
         return mGameControllerFragment.displayBuilder();
     }
+
+    @Override
+    public String validateLetterGuess(char c) {
+        return mGameControllerFragment.validateLetterGuess(c);
+    }
 }

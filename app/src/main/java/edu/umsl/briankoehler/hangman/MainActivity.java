@@ -4,6 +4,7 @@ import android.content.pm.ActivityInfo;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 import com.orm.SugarContext;
 
@@ -57,5 +58,8 @@ public class MainActivity extends AppCompatActivity implements TitleScreenFragme
     @Override
     public void updateProgressBar(int progress) {
         mTitleScreenFragment.updateProgressBar(progress);
+    }
+
+    public void onDictionaryButtonPress(View view) {
     }
 }
