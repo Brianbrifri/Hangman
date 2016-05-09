@@ -1,5 +1,6 @@
 package edu.umsl.briankoehler.hangman;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -17,6 +18,7 @@ public class GameFragment extends Fragment{
 
     private TextView mWordTextView;
     private GameFragmentListener mListener;
+    private Drawable mDrawable;
 
     private Button mQButton;
     private Button mWButton;
@@ -46,6 +48,8 @@ public class GameFragment extends Fragment{
     private Button mMButton;
 
 
+
+
     interface GameFragmentListener {
         String updateTextView();
         String validateLetterGuess(char c);
@@ -60,6 +64,7 @@ public class GameFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_game_layout, container, false);
         mQButton = (Button) view.findViewById(R.id.imageButtonQ);
+        mDrawable = mQButton.getBackground();
         mQButton.setOnClickListener(letterGuess());
         mWButton = (Button) view.findViewById(R.id.imageButtonW);
         mWButton.setOnClickListener(letterGuess());
@@ -128,139 +133,224 @@ public class GameFragment extends Fragment{
             public void onClick(View v) {
                 switch (v.getId()) {
                     case R.id.imageButtonA:
-                        mWordTextView.setText(mListener.validateLetterGuess('a'));
                         mAButton.setEnabled(false);
                         mAButton.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.guessedLetter));
+                        mWordTextView.setText(mListener.validateLetterGuess('a'));
                         break;
                     case R.id.imageButtonB:
-                        mWordTextView.setText(mListener.validateLetterGuess('b'));
                         mBButton.setEnabled(false);
                         mBButton.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.guessedLetter));
+                        mWordTextView.setText(mListener.validateLetterGuess('b'));
                         break;
                     case R.id.imageButtonC:
-                        mWordTextView.setText(mListener.validateLetterGuess('c'));
                         mCButton.setEnabled(false);
                         mCButton.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.guessedLetter));
+                        mWordTextView.setText(mListener.validateLetterGuess('c'));
                         break;
                     case R.id.imageButtonD:
-                        mWordTextView.setText(mListener.validateLetterGuess('d'));
                         mDButton.setEnabled(false);
                         mDButton.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.guessedLetter));
+                        mWordTextView.setText(mListener.validateLetterGuess('d'));
                         break;
                     case R.id.imageButtonE:
-                        mWordTextView.setText(mListener.validateLetterGuess('e'));
                         mEButton.setEnabled(false);
                         mEButton.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.guessedLetter));
+                        mWordTextView.setText(mListener.validateLetterGuess('e'));
                         break;
                     case R.id.imageButtonF:
-                        mWordTextView.setText(mListener.validateLetterGuess('f'));
                         mFButton.setEnabled(false);
                         mFButton.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.guessedLetter));
+                        mWordTextView.setText(mListener.validateLetterGuess('f'));
                         break;
                     case R.id.imageButtonG:
-                        mWordTextView.setText(mListener.validateLetterGuess('g'));
                         mGButton.setEnabled(false);
                         mGButton.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.guessedLetter));
+                        mWordTextView.setText(mListener.validateLetterGuess('g'));
                         break;
                     case R.id.imageButtonH:
-                        mWordTextView.setText(mListener.validateLetterGuess('h'));
                         mHButton.setEnabled(false);
                         mHButton.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.guessedLetter));
+                        mWordTextView.setText(mListener.validateLetterGuess('h'));
                         break;
                     case R.id.imageButtonI:
-                        mWordTextView.setText(mListener.validateLetterGuess('i'));
                         mIButton.setEnabled(false);
                         mIButton.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.guessedLetter));
+                        mWordTextView.setText(mListener.validateLetterGuess('i'));
                         break;
                     case R.id.imageButtonJ:
-                        mWordTextView.setText(mListener.validateLetterGuess('j'));
                         mJButton.setEnabled(false);
                         mJButton.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.guessedLetter));
+                        mWordTextView.setText(mListener.validateLetterGuess('j'));
                         break;
                     case R.id.imageButtonK:
-                        mWordTextView.setText(mListener.validateLetterGuess('k'));
                         mKButton.setEnabled(false);
                         mKButton.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.guessedLetter));
+                        mWordTextView.setText(mListener.validateLetterGuess('k'));
                         break;
                     case R.id.imageButtonL:
-                        mWordTextView.setText(mListener.validateLetterGuess('l'));
                         mLButton.setEnabled(false);
                         mLButton.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.guessedLetter));
+                        mWordTextView.setText(mListener.validateLetterGuess('l'));
                         break;
                     case R.id.imageButtonM:
-                        mWordTextView.setText(mListener.validateLetterGuess('m'));
                         mMButton.setEnabled(false);
                         mMButton.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.guessedLetter));
+                        mWordTextView.setText(mListener.validateLetterGuess('m'));
                         break;
                     case R.id.imageButtonN:
-                        mWordTextView.setText(mListener.validateLetterGuess('n'));
                         mNButton.setEnabled(false);
                         mNButton.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.guessedLetter));
+                        mWordTextView.setText(mListener.validateLetterGuess('n'));
                         break;
                     case R.id.imageButtonO:
-                        mWordTextView.setText(mListener.validateLetterGuess('o'));
                         mOButton.setEnabled(false);
                         mOButton.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.guessedLetter));
+                        mWordTextView.setText(mListener.validateLetterGuess('o'));
                         break;
                     case R.id.imageButtonP:
-                        mWordTextView.setText(mListener.validateLetterGuess('p'));
                         mPButton.setEnabled(false);
                         mPButton.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.guessedLetter));
+                        mWordTextView.setText(mListener.validateLetterGuess('p'));
                         break;
                     case R.id.imageButtonQ:
-                        mWordTextView.setText(mListener.validateLetterGuess('q'));
                         mQButton.setEnabled(false);
                         mQButton.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.guessedLetter));
+                        mWordTextView.setText(mListener.validateLetterGuess('q'));
                         break;
                     case R.id.imageButtonR:
-                        mWordTextView.setText(mListener.validateLetterGuess('r'));
                         mRButton.setEnabled(false);
                         mRButton.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.guessedLetter));
+                        mWordTextView.setText(mListener.validateLetterGuess('r'));
                         break;
                     case R.id.imageButtonS:
-                        mWordTextView.setText(mListener.validateLetterGuess('s'));
                         mSButton.setEnabled(false);
                         mSButton.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.guessedLetter));
+                        mWordTextView.setText(mListener.validateLetterGuess('s'));
                         break;
                     case R.id.imageButtonT:
-                        mWordTextView.setText(mListener.validateLetterGuess('t'));
                         mTButton.setEnabled(false);
                         mTButton.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.guessedLetter));
+                        mWordTextView.setText(mListener.validateLetterGuess('t'));
                         break;
                     case R.id.imageButtonU:
-                        mWordTextView.setText(mListener.validateLetterGuess('u'));
                         mUButton.setEnabled(false);
                         mUButton.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.guessedLetter));
+                        mWordTextView.setText(mListener.validateLetterGuess('u'));
                         break;
                     case R.id.imageButtonV:
-                        mWordTextView.setText(mListener.validateLetterGuess('v'));
                         mVButton.setEnabled(false);
                         mVButton.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.guessedLetter));
+                        mWordTextView.setText(mListener.validateLetterGuess('v'));
                         break;
                     case R.id.imageButtonW:
-                        mWordTextView.setText(mListener.validateLetterGuess('w'));
                         mWButton.setEnabled(false);
                         mWButton.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.guessedLetter));
+                        mWordTextView.setText(mListener.validateLetterGuess('w'));
                         break;
                     case R.id.imageButtonX:
-                        mWordTextView.setText(mListener.validateLetterGuess('x'));
                         mXButton.setEnabled(false);
                         mXButton.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.guessedLetter));
+                        mWordTextView.setText(mListener.validateLetterGuess('x'));
                         break;
                     case R.id.imageButtonY:
-                        mWordTextView.setText(mListener.validateLetterGuess('y'));
                         mYButton.setEnabled(false);
                         mYButton.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.guessedLetter));
+                        mWordTextView.setText(mListener.validateLetterGuess('y'));
                         break;
                     case R.id.imageButtonZ:
-                        mWordTextView.setText(mListener.validateLetterGuess('z'));
                         mZButton.setEnabled(false);
                         mZButton.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.guessedLetter));
+                        mWordTextView.setText(mListener.validateLetterGuess('z'));
                         break;
                     default:
                         break;
                 }
             }
         };
+    }
+
+    public void setEndGameState() {
+        mAButton.setEnabled(false);
+        mAButton.setBackground(mDrawable);
+        mBButton.setEnabled(false);
+        mBButton.setBackground(mDrawable);
+        mCButton.setEnabled(false);
+        mCButton.setBackground(mDrawable);
+        mDButton.setEnabled(false);
+        mDButton.setBackground(mDrawable);
+        mEButton.setEnabled(false);
+        mEButton.setBackground(mDrawable);
+        mFButton.setEnabled(false);
+        mFButton.setBackground(mDrawable);
+        mGButton.setEnabled(false);
+        mGButton.setBackground(mDrawable);
+        mHButton.setEnabled(false);
+        mHButton.setBackground(mDrawable);
+        mIButton.setEnabled(false);
+        mIButton.setBackground(mDrawable);
+        mJButton.setEnabled(false);
+        mJButton.setBackground(mDrawable);
+        mKButton.setEnabled(false);
+        mKButton.setBackground(mDrawable);
+        mLButton.setEnabled(false);
+        mLButton.setBackground(mDrawable);
+        mMButton.setEnabled(false);
+        mMButton.setBackground(mDrawable);
+        mNButton.setEnabled(false);
+        mNButton.setBackground(mDrawable);
+        mOButton.setEnabled(false);
+        mOButton.setBackground(mDrawable);
+        mPButton.setEnabled(false);
+        mPButton.setBackground(mDrawable);
+        mQButton.setEnabled(false);
+        mQButton.setBackground(mDrawable);
+        mRButton.setEnabled(false);
+        mRButton.setBackground(mDrawable);
+        mSButton.setEnabled(false);
+        mSButton.setBackground(mDrawable);
+        mTButton.setEnabled(false);
+        mTButton.setBackground(mDrawable);
+        mUButton.setEnabled(false);
+        mUButton.setBackground(mDrawable);
+        mVButton.setEnabled(false);
+        mVButton.setBackground(mDrawable);
+        mWButton.setEnabled(false);
+        mWButton.setBackground(mDrawable);
+        mXButton.setEnabled(false);
+        mXButton.setBackground(mDrawable);
+        mYButton.setEnabled(false);
+        mYButton.setBackground(mDrawable);
+        mZButton.setEnabled(false);
+        mZButton.setBackground(mDrawable);
+    }
+
+    public void resetGame() {
+        mAButton.setEnabled(true);
+        mBButton.setEnabled(true);
+        mCButton.setEnabled(true);
+        mDButton.setEnabled(true);
+        mEButton.setEnabled(true);
+        mFButton.setEnabled(true);
+        mGButton.setEnabled(true);
+        mHButton.setEnabled(true);
+        mIButton.setEnabled(true);
+        mJButton.setEnabled(true);
+        mKButton.setEnabled(true);
+        mLButton.setEnabled(true);
+        mMButton.setEnabled(true);
+        mNButton.setEnabled(true);
+        mOButton.setEnabled(true);
+        mPButton.setEnabled(true);
+        mQButton.setEnabled(true);
+        mRButton.setEnabled(true);
+        mSButton.setEnabled(true);
+        mTButton.setEnabled(true);
+        mUButton.setEnabled(true);
+        mVButton.setEnabled(true);
+        mWButton.setEnabled(true);
+        mXButton.setEnabled(true);
+        mYButton.setEnabled(true);
+        mZButton.setEnabled(true);
+        updateTextView();
     }
 }

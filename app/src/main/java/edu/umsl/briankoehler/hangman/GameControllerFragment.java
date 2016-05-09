@@ -14,30 +14,31 @@ public class GameControllerFragment extends Fragment{
     private GameModel mGameModel;
     private int numberOfUnguessedLetters;
     private int numberOfBadGuessesLeft;
+    private int difficultyLevel;
     private ArrayList<String> listOfPlaceHolders;
-
-
     private String secretWord;
+    private listener mListener;
+
+    interface listener {
+        void setEndGameState();
+        void alertActivityOfLoss();
+    }
+
+    public void setListener(listener listener) {
+        mListener = listener;
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         Bundle args = getArguments();
-        int difficultyLevel = args.getInt("difficulty", 0);
+        difficultyLevel = args.getInt("difficulty", 0);
         mGameModel = new GameModel(difficultyLevel);
         secretWord = mGameModel.getWord();
         arrayInitializer(secretWord);
 
-        if (difficultyLevel == 0) {
-            numberOfBadGuessesLeft = 12;
-        }
-        else if (difficultyLevel == 1) {
-            numberOfBadGuessesLeft = 9;
-        }
-        else {
-            numberOfBadGuessesLeft = 7;
-        }
+
     }
 
 
@@ -48,6 +49,16 @@ public class GameControllerFragment extends Fragment{
         numberOfUnguessedLetters = theWord.length();
         for (int i = 0; i < theWord.length(); i++) {
             listOfPlaceHolders.add("_");
+        }
+
+        if (difficultyLevel == 0) {
+            numberOfBadGuessesLeft = 12;
+        }
+        else if (difficultyLevel == 1) {
+            numberOfBadGuessesLeft = 9;
+        }
+        else {
+            numberOfBadGuessesLeft = 7;
         }
     }
 
@@ -88,6 +99,7 @@ public class GameControllerFragment extends Fragment{
         //Win scenario
         if (numberOfUnguessedLetters == 0) {
             //TODO write code for game win
+            mListener.setEndGameState();
         }
 
         //Lose scenario
@@ -97,7 +109,16 @@ public class GameControllerFragment extends Fragment{
                 temp = temp.toUpperCase();
                 listOfPlaceHolders.set(i, temp);
             }
+            mListener.setEndGameState();
+            mListener.alertActivityOfLoss();
         }
+        return displayBuilder();
+    }
+
+    public String resetGame() {
+        mGameModel = new GameModel(difficultyLevel);
+        secretWord = mGameModel.getWord();
+        arrayInitializer(secretWord);
         return displayBuilder();
     }
 }

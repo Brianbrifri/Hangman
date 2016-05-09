@@ -1,17 +1,19 @@
 package edu.umsl.briankoehler.hangman;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 
 /**
  * Created by b-kizzle on 5/4/16.
  */
-public class GameActivity extends AppCompatActivity implements GameFragment.GameFragmentListener{
+public class GameActivity extends AppCompatActivity implements GameFragment.GameFragmentListener, GameControllerFragment.listener{
 
     private static final String GAME_DIFFICULTY = "edu.umsl.briankoehler.game_difficulty";
     private static final String THIRD_FRAGMENT = "third_fragment";
@@ -53,6 +55,7 @@ public class GameActivity extends AppCompatActivity implements GameFragment.Game
                     .commit();
         }
         mGameFragment.setListener(this);
+        mGameControllerFragment.setListener(this);
     }
 
     @Override
@@ -63,5 +66,53 @@ public class GameActivity extends AppCompatActivity implements GameFragment.Game
     @Override
     public String validateLetterGuess(char c) {
         return mGameControllerFragment.validateLetterGuess(c);
+    }
+
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setTitle("End Game")
+                .setMessage("Are you sure you want to end the game?")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+
+                })
+                .setNegativeButton("No", null)
+                .show();
+    }
+
+    @Override
+    public void setEndGameState() {
+        mGameFragment.setEndGameState();
+    }
+
+    @Override
+    public void alertActivityOfLoss() {
+
+        new AlertDialog.Builder(this)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setTitle("Game Over")
+                .setMessage("Do you want to play again?")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        mGameControllerFragment.resetGame();
+                        mGameFragment.resetGame();
+                        dialog.dismiss();
+                    }
+
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                })
+                .show();
     }
 }
