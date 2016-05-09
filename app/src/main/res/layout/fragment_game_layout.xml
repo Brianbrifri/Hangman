@@ -2,76 +2,207 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="300dp">
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/hangman"/>
+              android:layout_height="match_parent">
 
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:src="@drawable/hangman"/>
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:id="@+id/main_text_view"/>
+        android:id="@+id/main_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="35sp"
+        android:paddingTop="10dp"
+        android:textColor="#e71818"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        style="?android:attr/buttonBarStyle">
+        android:layout_gravity="center"
+        android:gravity="center_horizontal"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
+
         <Button
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
-            style="?android:attr/buttonBarButtonStyle"
-            android:id="@+id/imageButtonQ"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:text="@string/q"
-            android:textColor="@android:color/holo_red_dark"
-            />
+            android:textColor="@android:color/holo_green_dark"
+            android:id="@+id/imageButtonQ"/>
         <Button
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="@string/w"
+            android:textColor="@android:color/holo_green_dark"
             android:id="@+id/imageButtonW"/>
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="@string/e"
+            android:textColor="@android:color/holo_green_dark"
+            android:id="@+id/imageButtonE"/>
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="@string/r"
+            android:textColor="@android:color/holo_green_dark"
+            android:id="@+id/imageButtonR"/>
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="@string/t"
+            android:textColor="@android:color/holo_green_dark"
+            android:id="@+id/imageButtonT"/>
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="@string/y"
+            android:textColor="@android:color/holo_green_dark"
+            android:id="@+id/imageButtonY"/>
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="@string/u"
+            android:textColor="@android:color/holo_green_dark"
+            android:id="@+id/imageButtonU"/>
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="@string/i"
+            android:textColor="@android:color/holo_green_dark"
+            android:id="@+id/imageButtonI"/>
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="@string/o"
+            android:textColor="@android:color/holo_green_dark"
+            android:id="@+id/imageButtonO"/>
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="@string/p"
+            android:textColor="@android:color/holo_green_dark"
+            android:id="@+id/imageButtonP"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:gravity="center_horizontal"
+        android:paddingBottom="10dp">
 
         <Button
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:id="@+id/imageButtonE" />
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="@string/a"
+            android:textColor="@android:color/holo_green_dark"
+            android:id="@+id/imageButtonA"/>
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="@string/s"
+            android:textColor="@android:color/holo_green_dark"
+            android:id="@+id/imageButtonS"/>
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="@string/d"
+            android:textColor="@android:color/holo_green_dark"
+            android:id="@+id/imageButtonD"/>
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="@string/f"
+            android:textColor="@android:color/holo_green_dark"
+            android:id="@+id/imageButtonF"/>
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="@string/g"
+            android:textColor="@android:color/holo_green_dark"
+            android:id="@+id/imageButtonG"/>
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="@string/h"
+            android:textColor="@android:color/holo_green_dark"
+            android:id="@+id/imageButtonH"/>
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="@string/j"
+            android:textColor="@android:color/holo_green_dark"
+            android:id="@+id/imageButtonJ"/>
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="@string/k"
+            android:textColor="@android:color/holo_green_dark"
+            android:id="@+id/imageButtonK"/>
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="@string/l"
+            android:textColor="@android:color/holo_green_dark"
+            android:id="@+id/imageButtonL"/>
+
+     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:gravity="center_horizontal"
+        android:paddingBottom="10dp">
 
         <Button
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:id="@+id/imageButtonR" />
-
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="@string/z"
+            android:textColor="@android:color/holo_green_dark"
+            android:id="@+id/imageButtonZ"/>
         <Button
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:id="@+id/imageButtonT" />
-
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="@string/x"
+            android:textColor="@android:color/holo_green_dark"
+            android:id="@+id/imageButtonX"/>
         <Button
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:id="@+id/imageButtonY" />
-
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="@string/c"
+            android:textColor="@android:color/holo_green_dark"
+            android:id="@+id/imageButtonC"/>
         <Button
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:id="@+id/imageButtonU" />
-
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="@string/v"
+            android:textColor="@android:color/holo_green_dark"
+            android:id="@+id/imageButtonV"/>
         <Button
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:id="@+id/imageButtonI" />
-
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="@string/b"
+            android:textColor="@android:color/holo_green_dark"
+            android:id="@+id/imageButtonB"/>
         <Button
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:id="@+id/imageButtonO" />
-
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="@string/n"
+            android:textColor="@android:color/holo_green_dark"
+            android:id="@+id/imageButtonN"/>
         <Button
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:id="@+id/imageButtonP" />
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="@string/m"
+            android:textColor="@android:color/holo_green_dark"
+            android:id="@+id/imageButtonM"/>
 
     </LinearLayout>
 

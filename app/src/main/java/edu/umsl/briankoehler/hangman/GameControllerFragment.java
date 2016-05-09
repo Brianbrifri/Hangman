@@ -41,7 +41,6 @@ public class GameControllerFragment extends Fragment{
     private String yPlaceHolder;
     private String zPlaceHolder;
     private String secretWord;
-    private int secretWordLength;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -51,7 +50,6 @@ public class GameControllerFragment extends Fragment{
         int difficultyLevel = args.getInt("difficulty", 0);
         mGameModel = new GameModel(difficultyLevel);
         secretWord = mGameModel.getWord();
-        secretWordLength = mGameModel.getSizeOfWord();
         initializePlaceHolders();
         arrayInitializer(secretWord);
     }
