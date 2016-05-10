@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.WindowManager;
 
 /**
@@ -132,8 +133,7 @@ public class GameActivity extends AppCompatActivity implements GameFragment.Game
         //This is to move the dialog box down on the screen so as not to cover up the text view
         AlertDialog dialog = builder.create();
         WindowManager.LayoutParams wmlp = dialog.getWindow().getAttributes();
-        wmlp.x = 0;
-        wmlp.y = 450;
+        wmlp.gravity = Gravity.BOTTOM;
         dialog.show();
     }
 
@@ -161,8 +161,7 @@ public class GameActivity extends AppCompatActivity implements GameFragment.Game
                 });
         AlertDialog dialog = builder.create();
         WindowManager.LayoutParams wmlp = dialog.getWindow().getAttributes();
-        wmlp.x = 0;
-        wmlp.y = 450;
+        wmlp.gravity = Gravity.BOTTOM;
         dialog.show();
     }
 
