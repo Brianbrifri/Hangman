@@ -19,10 +19,12 @@ import java.util.ArrayList;
  */
 public class GameFragment extends Fragment{
 
+    //There is a button for every letter, hence long file
     private TextView mWordTextView;
     private GameFragmentListener mListener;
     private Drawable mDrawable;
     private Drawable mHangmanDrawable;
+    //ArrayList of drawables to more easily select which one
     private ArrayList<Drawable> sequenceOfDrawables;
     private Drawable sequence_0;
     private Drawable sequence_1;
@@ -83,7 +85,9 @@ public class GameFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_game_layout, container, false);
 
+        //Wire up the buttons.
         mQButton = (Button) view.findViewById(R.id.imageButtonQ);
+        //Get the default background to be able to go back to it when resetting the game
         mDrawable = mQButton.getBackground();
         mQButton.setOnClickListener(letterGuess());
         mWButton = (Button) view.findViewById(R.id.imageButtonW);
@@ -143,6 +147,7 @@ public class GameFragment extends Fragment{
 
         sequenceOfDrawables = new ArrayList<>();
 
+        //Set drawables and add them to the arraylist
         sequence_0 = ContextCompat.getDrawable(getContext(), R.drawable.sequence_0);
         sequenceOfDrawables.add(sequence_0);
         sequence_1 = ContextCompat.getDrawable(getContext(), R.drawable.sequence_1);
@@ -177,10 +182,14 @@ public class GameFragment extends Fragment{
         return view;
     }
 
-    public void updateTextView() {
+
+    private void updateTextView() {
         mWordTextView.setText(mListener.updateTextView());
     }
 
+    //When a letter is guessed, based on the id of the button, it calls the listener function with
+    //the appropriate character, disables the button, and sets the background to black to show that it
+    //has been guessed already
     private View.OnClickListener letterGuess() {
         return new View.OnClickListener() {
             @Override
@@ -323,6 +332,7 @@ public class GameFragment extends Fragment{
         };
     }
 
+    //End game state disables ALL the buttons and sets the default background for all of them
     public void setEndGameState() {
         mAButton.setEnabled(false);
         mAButton.setBackground(mDrawable);
@@ -378,6 +388,7 @@ public class GameFragment extends Fragment{
         mZButton.setBackground(mDrawable);
     }
 
+    //Reenables all the buttons and updates the text view and drawable
     public void resetGame() {
         mAButton.setEnabled(true);
         mBButton.setEnabled(true);
@@ -409,6 +420,7 @@ public class GameFragment extends Fragment{
         updateTextView();
     }
 
+    //Updates the drawable based on what the controller fragment says
     public void updateHangmanDrawable(int sequence) {
         hangmanView.setBackground(sequenceOfDrawables.get(sequence));
     }

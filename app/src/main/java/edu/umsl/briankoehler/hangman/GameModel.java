@@ -15,7 +15,8 @@ public class GameModel {
     private static final int MEDIUM = 1;
     private static final int HARD = 2;
 
-
+    //Constructor takes in the difficulty level. Based on that, it creates a list of words based on their lengths then
+    //Selects one at random by index
     public GameModel(int difficultyLevel) {
         if (difficultyLevel == EASY) {
             mWordList = (ArrayList<GameWord>) GameWord.findWithQuery(GameWord.class, "Select * from game_word WHERE (length > 2 AND length < 6)");

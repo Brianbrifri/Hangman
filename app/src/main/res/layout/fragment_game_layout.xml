@@ -6,7 +6,7 @@
 
 
     <ImageView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:id="@+id/hangman_view"
         android:layout_height="300dp"
         />
