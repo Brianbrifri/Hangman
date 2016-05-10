@@ -14,6 +14,7 @@ public class GameControllerFragment extends Fragment{
     private GameModel mGameModel;
     private int numberOfUnguessedLetters;
     private int numberOfBadGuessesLeft;
+    private int numberOfBadGuessesMade;
     private int difficultyLevel;
     private ArrayList<String> listOfPlaceHolders;
     private String secretWord;
@@ -22,6 +23,7 @@ public class GameControllerFragment extends Fragment{
     interface listener {
         void setEndGameState();
         void alertActivityOfLoss();
+        void updateHangmanView(int sequence);
     }
 
     public void setListener(listener listener) {
@@ -37,6 +39,7 @@ public class GameControllerFragment extends Fragment{
         mGameModel = new GameModel(difficultyLevel);
         secretWord = mGameModel.getWord();
         arrayInitializer(secretWord);
+        numberOfBadGuessesMade = 0;
 
 
     }
@@ -88,6 +91,8 @@ public class GameControllerFragment extends Fragment{
 
         if (badGuess) {
             numberOfBadGuessesLeft--;
+            numberOfBadGuessesMade++;
+            mListener.updateHangmanView(numberOfBadGuessesMade);
         }
 
         for (int i = 0; i < listOfPlaceHolders.size(); i++) {

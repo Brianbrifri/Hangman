@@ -9,7 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 /**
  * Created by Brian Koehler on 5/4/2016.
@@ -19,6 +22,22 @@ public class GameFragment extends Fragment{
     private TextView mWordTextView;
     private GameFragmentListener mListener;
     private Drawable mDrawable;
+    private Drawable mHangmanDrawable;
+    private ArrayList<Drawable> sequenceOfDrawables;
+    private Drawable sequence_0;
+    private Drawable sequence_1;
+    private Drawable sequence_2;
+    private Drawable sequence_3;
+    private Drawable sequence_4;
+    private Drawable sequence_5;
+    private Drawable sequence_6;
+    private Drawable sequence_7;
+    private Drawable sequence_8;
+    private Drawable sequence_9;
+    private Drawable sequence_10;
+    private Drawable sequence_11;
+    private Drawable sequence_12;
+    private ImageView hangmanView;
 
     private Button mQButton;
     private Button mWButton;
@@ -63,6 +82,7 @@ public class GameFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_game_layout, container, false);
+
         mQButton = (Button) view.findViewById(R.id.imageButtonQ);
         mDrawable = mQButton.getBackground();
         mQButton.setOnClickListener(letterGuess());
@@ -116,7 +136,41 @@ public class GameFragment extends Fragment{
         mNButton.setOnClickListener(letterGuess());
         mMButton = (Button) view.findViewById(R.id.imageButtonM);
         mMButton.setOnClickListener(letterGuess());
+
         mWordTextView = (TextView) view.findViewById(R.id.main_text_view);
+
+        hangmanView = (ImageView) view.findViewById(R.id.hangman_view);
+
+        sequenceOfDrawables = new ArrayList<>();
+
+        sequence_0 = ContextCompat.getDrawable(getContext(), R.drawable.sequence_0);
+        sequenceOfDrawables.add(sequence_0);
+        sequence_1 = ContextCompat.getDrawable(getContext(), R.drawable.sequence_1);
+        sequenceOfDrawables.add(sequence_1);
+        sequence_2 = ContextCompat.getDrawable(getContext(), R.drawable.sequence_2);
+        sequenceOfDrawables.add(sequence_2);
+        sequence_3 = ContextCompat.getDrawable(getContext(), R.drawable.sequence_3);
+        sequenceOfDrawables.add(sequence_3);
+        sequence_4 = ContextCompat.getDrawable(getContext(), R.drawable.sequence_4);
+        sequenceOfDrawables.add(sequence_4);
+        sequence_5 = ContextCompat.getDrawable(getContext(), R.drawable.sequence_5);
+        sequenceOfDrawables.add(sequence_5);
+        sequence_6 = ContextCompat.getDrawable(getContext(), R.drawable.sequence_6);
+        sequenceOfDrawables.add(sequence_6);
+        sequence_7 = ContextCompat.getDrawable(getContext(), R.drawable.sequence_7);
+        sequenceOfDrawables.add(sequence_7);
+        sequence_8 = ContextCompat.getDrawable(getContext(), R.drawable.sequence_8);
+        sequenceOfDrawables.add(sequence_8);
+        sequence_9 = ContextCompat.getDrawable(getContext(), R.drawable.sequence_9);
+        sequenceOfDrawables.add(sequence_9);
+        sequence_10 = ContextCompat.getDrawable(getContext(), R.drawable.sequence_10);
+        sequenceOfDrawables.add(sequence_10);
+        sequence_11 = ContextCompat.getDrawable(getContext(), R.drawable.sequence_11);
+        sequenceOfDrawables.add(sequence_11);
+        sequence_12 = ContextCompat.getDrawable(getContext(), R.drawable.sequence_12);
+        sequenceOfDrawables.add(sequence_12);
+
+        hangmanView.setBackground(sequenceOfDrawables.get(0));
 
         updateTextView();
 
@@ -352,5 +406,9 @@ public class GameFragment extends Fragment{
         mYButton.setEnabled(true);
         mZButton.setEnabled(true);
         updateTextView();
+    }
+
+    public void updateHangmanDrawable(int sequence) {
+        hangmanView.setBackground(sequenceOfDrawables.get(sequence));
     }
 }

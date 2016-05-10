@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.WindowManager;
 
 /**
  * Created by b-kizzle on 5/4/16.
@@ -94,9 +95,9 @@ public class GameActivity extends AppCompatActivity implements GameFragment.Game
     @Override
     public void alertActivityOfLoss() {
 
-        new AlertDialog.Builder(this)
-                .setIcon(android.R.drawable.ic_dialog_alert)
-                .setTitle("Game Over")
+        AlertDialog.Builder builder = new AlertDialog.Builder (this);
+                builder.setIcon(android.R.drawable.ic_dialog_alert)
+                .setTitle("Oh Darn...You Lose")
                 .setMessage("Do you want to play again?")
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
@@ -112,7 +113,16 @@ public class GameActivity extends AppCompatActivity implements GameFragment.Game
                     public void onClick(DialogInterface dialog, int which) {
                         finish();
                     }
-                })
-                .show();
+                });
+        AlertDialog dialog = builder.create();
+        WindowManager.LayoutParams wmlp = dialog.getWindow().getAttributes();
+        wmlp.x = 0;
+        wmlp.y = 450;
+        dialog.show();
+    }
+
+    @Override
+    public void updateHangmanView(int sequence) {
+        mGameFragment.updateHangmanDrawable(sequence);
     }
 }
