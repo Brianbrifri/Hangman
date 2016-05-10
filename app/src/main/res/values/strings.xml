@@ -6,6 +6,7 @@
     <string name="medium">Medium</string>
     <string name="hard">Hard</string>
     <string name="load_dictionary">Load Dictionary</string>
+    <string name="hangman_picture">This is a picture of the hangman</string>
     <string name="q">Q</string>
     <string name="w">W</string>
     <string name="e">E</string>
