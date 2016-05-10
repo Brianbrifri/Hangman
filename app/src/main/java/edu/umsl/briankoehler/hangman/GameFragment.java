@@ -405,6 +405,7 @@ public class GameFragment extends Fragment{
         mXButton.setEnabled(true);
         mYButton.setEnabled(true);
         mZButton.setEnabled(true);
+        hangmanView.setBackground(sequenceOfDrawables.get(0));
         updateTextView();
     }
 
