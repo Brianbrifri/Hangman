@@ -22,14 +22,17 @@ public class TitleScreenFragment extends Fragment{
     private static final int HARD = 2;
 
 
+    //Interface that this fragement uses
     interface listener {
         void onDictionaryButtonPress();
     }
 
+    //Listener setter function
     public void setListener(listener listener) {
         mListener = listener;
     }
 
+    //Wire up buttons and inflate view.
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_screen_title_layout, container, false);
@@ -41,6 +44,10 @@ public class TitleScreenFragment extends Fragment{
         mHardButton.setOnClickListener(onHardButtonPress());
         mDictionaryButton = (Button) view.findViewById(R.id.load_dictionary);
         mDictionaryButton.setOnClickListener(onDictionaryButtonPress());
+
+        //This checks to see if the words have been added to the database.
+        //If yes, the load dictionary button is disabled. If no, the
+        //game mode buttons are disabled instead
         GameWord mGameWord = GameWord.findById(GameWord.class, 4);
 
         if (mGameWord != null) {
@@ -54,12 +61,14 @@ public class TitleScreenFragment extends Fragment{
             mHardButton.setEnabled(false);
         }
 
+        //Wire up progress bar
         mProgressBar = (ProgressBar) view.findViewById(R.id.progressBar);
         mProgressBar.setMax(100);
         mProgressBar.setProgress(0);
         return view;
     }
 
+    //On click listener fo load dictionary button. Calls listener
     private View.OnClickListener onDictionaryButtonPress() {
         mDictionaryButton.setEnabled(false);
         return new View.OnClickListener() {
@@ -70,6 +79,7 @@ public class TitleScreenFragment extends Fragment{
         };
     }
 
+    //Easy button press. Starts GameActivity and passes the EASY parameter
     private View.OnClickListener onEasyButtonPress() {
         return new View.OnClickListener() {
             @Override
@@ -80,6 +90,7 @@ public class TitleScreenFragment extends Fragment{
         };
     }
 
+    //Medium button press. Starts GameActivity and passes the MEDIUM parameter
     private View.OnClickListener onMediumButtonPress() {
         return new View.OnClickListener() {
             @Override
@@ -90,6 +101,7 @@ public class TitleScreenFragment extends Fragment{
         };
     }
 
+    //Hard button press. Starts GameActivity and passes the HARD parameter
     private View.OnClickListener onHardButtonPress() {
         return new View.OnClickListener() {
             @Override
@@ -100,6 +112,7 @@ public class TitleScreenFragment extends Fragment{
         };
     }
 
+    //This gets called when the words are done being loaded into disk
     public void reenableChoices() {
         mDictionaryButton.setEnabled(false);
         mEasyButton.setEnabled(true);
@@ -107,6 +120,8 @@ public class TitleScreenFragment extends Fragment{
         mHardButton.setEnabled(true);
     }
 
+    //This gets called by activity via listener from controller fragment
+    //and updates progress bar
     public void updateProgressBar(int progress) {
         mProgressBar.setProgress(progress);
     }
